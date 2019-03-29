@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Forgot";
+
+}
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}
+
+@model Self_Service_MVC.Models.UserInfo
+
+<div class="modal fade bs-example-modal-sm" id="myModal" role="dialog" aria-label="myModallabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title"  style="text-align: center">忘记密码</p>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                <h3>重置密码</h3>
+                <p>如果你能够找到你的账户名称，那么你现在可以通过短信/邮件重置你的密码。</p>
+            </div>
+            <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="输入忘记密码的邮箱地址">
+            </div>
+            <div class="modal-footer" style="text-align:center">
+                <form class="form-group" id="checkform" name="checkform" style="display: inline-block">
+                    <button id="check" type="submit" class="btn btn-sm btn-success" style="float:left" asp-area="" asp-controller="Gate" asp-action="ConfirmByEmail">
+                        通过备用邮箱找回
+                    </button>
+                </form>
+                <form class="form-group" id="checkform" name="checkform" style="display: inline-block">
+                    <button id="check" type="submit" class="btn btn-sm btn-info" style="float:right" asp-controller="Gate" asp-action="ConfirmByPhone">
+                        通过手机短信找回
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

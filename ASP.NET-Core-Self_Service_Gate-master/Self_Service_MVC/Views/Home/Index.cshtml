@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts{
+
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+    <script src="~/js/jquery.flot.js"></script>
+    <script src="~/js/jquery.flot.resize.js"></script>
+    <script src="~/js/jquery.flot.pie.js"></script>
+    <script src="~/js/curvedLines.js"></script>
+    <script src="~/js/index.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/icheck.min.js"></script>
+    <script src="~/js/jquery.peity.min.js"></script>
+    <script src="~/js/sparkline/index.js"></script>
+    <script src="~/js/sweet-alert.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/homer.js"></script>
+    <script>
+        $(function () {
+            $('.submitWizard').click(function () {
+                swal({
+                    title: "更新成功",
+                    text: "",
+                    type: "success"
+                });
+            });
+        });
+    </script>
+}
+
+<link rel="stylesheet" href="~/css/metisMenu.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/sweet-alert.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true" />
+
+<!-- App styles -->
+<link rel="stylesheet" asp-fallback-href="~/css/pe-icon-7-stroke.css" asp-append-version="true" />
+<link rel="stylesheet" asp-fallback-href="~/css/helper.css" asp-append-version="true" />
+<link rel="stylesheet" asp-fallback-href="~/css/style.css" asp-append-version="true" />
+
+<div class="fixed-navbar fixed-sidebar">
+
+    <!-- Simple splash screen-->
+    <div id="header">
+        <div class="color-line">
+        </div>
+        <div id="logo" class="light-version">
+            <span>
+                用户自服务门户
+            </span>
+        </div>
+        <nav role="navigation">
+            <div class="header-link hide-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav no-borders">
+                    <li class="dropdown">
+                        <a href="http://192.168.6.1/oauth/authorize">
+                            <i class="pe-7s-upload pe-rotate-90"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Navigation -->
+    <aside id="menu">
+        <div id="navigation">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="Index">
+                        <span class="nav-label"> 基本信息</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="email">
+                        <span class="nav-label"> 备用邮箱</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="phone">
+                        <span class="nav-label"> 手机重置</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reset_password">
+                        <span class="nav-label"> 密码重置</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div id="wrapper">
+
+        <div class="small-header">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <h2 class="font-light m-b-xs">
+                        维护账户基本信息
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="content animate-panel">
+            <div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="hpanel">
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">账户</label>
+
+                                    <div class="col-lg-10">
+                                        <input type="text" disabled="" placeholder="tom@corp.kuaishou.com" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">姓氏</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" value="tom">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名称</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" value="tom">
+                                        <!-- <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>> -->
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">性别</label>
+                                    <fieldset>
+                                        <div class="col-sm-10">
+                                            <div class="radio radio-info radio-inline">
+                                                <input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
+                                                <label for="inlineRadio1">男</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="inlineRadio2" value="option2" name="radioInline">
+                                                <label for="inlineRadio2">女</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">描述</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button class="btn w-xs btn-success submitWizard" href="#">更新</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer-->
+        <footer class="footer">
+            <span class="pull-right">
+                Example text
+            </span>
+            Company 2015-2020
+        </footer>
+    </div>
+</div>

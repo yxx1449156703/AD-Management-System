@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "EmailCode";
+}
+@section Scripts{
+    <script src="~/js/gate.js"></script>
+    <script src="~/js/site.js"></script>
+    <script language="javascript">
+        function start() {
+            var s = 10;
+            document.getElementById("Button1").disabled = true;
+            document.getElementById("Button1").value = s;
+            window.setTimeout("tick()", 1000);
+        }
+        function tick() {
+            var time = new Number(document.getElementById("Button1").value);
+            if (time > 0) {
+                document.getElementById("Button1").value = time - 1;
+                window.setTimeout("tick()", 1000);
+            }
+            else {
+                document.getElementById("Button1").disabled = false;
+                document.getElementById("Button1").value = "重新发送";
+                document.getElementById("in").disabled = true;
+            }
+        }
+    </script>
+    <script language=javascript>
+        start();
+    </script>
+}
+<div class="modal fade bs-example-modal-sm" id="myModal" role="dialog" aria-label="myModallabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" style="text-align: center">手机验证码</p>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                <h3>输入代码</h3>
+                <p>我们已将验证码发送到</p>
+                <p>@ViewData["email"]</p>
+                <p>请检查你的备用邮箱来获取密码重置代码。</p>
+            </div>
+            <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-tags form-control-feedback form-inline"></span>
+                <input type="text" style="width:99%" class="form-control" id="in" placeholder="密码重置代码"><INPUT TYPE="button" class="btn btn-warning btn-primary" onclick="javascript:window.location.reload()" NAME="Button1" id="Button1">
+            </div>
+            <div class="modal-footer">
+                <form class="form-group" id="checkform" name="checkform">
+                    <button id="check" type="submit" class="btn btn-group-sm btn-block btn-info" asp-controller="Reset" asp-action="ResetPage">
+                        验证代码
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

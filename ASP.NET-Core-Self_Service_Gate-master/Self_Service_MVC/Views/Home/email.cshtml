@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts{
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+    <script src="~/js/jquery.flot.js"></script>
+    <script src="~/js/jquery.flot.resize.js"></script>
+    <script src="~/js/jquery.flot.pie.js"></script>
+    <script src="~/js/curvedLines.js"></script>
+    <script src="~/js/index.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/icheck.min.js"></script>
+    <script src="~/js/jquery.peity.min.js"></script>
+    <script src="~/js/sparkline/index.js"></script>
+    <script src="~/js/sweet-alert.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/homer.js"></script>
+    <script>
+        $(function () {
+            $.extend($.validator.messages, {
+                required: "这是必填字段"
+            });
+
+            $.validator.addMethod("check_email", function (value, element, params) {
+                var check_email = /^[a-zA-Z0-9_.-]+@@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/g;
+                return this.optional(element) || (check_email.test(value));
+            }, "请输入有效的邮箱地址");
+
+            $("#form").validate({
+                rules: {
+                    email_address: {
+                        required: true,
+                        check_email: true
+                    }
+                }, messages: {
+                    required: "这是必填字段"
+                },
+                submitHandler: function (form) {
+                    swal({
+                        title: "成功",
+                        text: "",
+                        type: "success"
+                    });
+                }
+            });
+        });
+    </script>
+}
+
+<link rel="stylesheet" href="~/css/metisMenu.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/sweet-alert.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true" />
+
+<!-- App styles -->
+<link rel="stylesheet" asp-fallback-href="~/css/pe-icon-7-stroke.css" asp-append-version="true" />
+<link rel="stylesheet" asp-fallback-href="~/css/helper.css" asp-append-version="true" />
+<link rel="stylesheet" asp-fallback-href="~/css/style.css" asp-append-version="true" />
+
+<div class="fixed-navbar fixed-sidebar">
+
+    <!-- Simple splash screen-->
+    <div id="header">
+        <div class="color-line">
+        </div>
+        <div id="logo" class="light-version">
+            <span>
+                用户自服务门户
+            </span>
+        </div>
+        <nav role="navigation">
+            <div class="header-link hide-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav no-borders">
+                    <li class="dropdown">
+                        <a href="http://192.168.6.1/oauth/authorize">
+                            <i class="pe-7s-upload pe-rotate-90"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Navigation -->
+    <aside id="menu">
+        <div id="navigation">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="Index">
+                        <span class="nav-label"> 基本信息</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="email.html">
+                        <span class="nav-label"> 备用邮箱</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="phone">
+                        <span class="nav-label"> 手机重置</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reset_password">
+                        <span class="nav-label"> 密码重置</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div id="wrapper">
+
+        <div class="small-header">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <h2 class="font-light m-b-xs">
+                        备用邮箱用于接收密码找回的邮件
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="content animate-panel">
+            <div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="hpanel">
+                            <form role="form" id="form" onsubmit="return false;">
+                                <div class="panel-body form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">邮箱</label>
+
+                                        <div class="col-lg-10">
+                                            <input type="text" id="email_address" name="email_address" value="tom@foxmail.com" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button class="btn w-xs btn-success submitWizard" type="submit">更新</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer-->
+        <footer class="footer">
+            <span class="pull-right">
+                Example text
+            </span>
+            Company 2015-2020
+        </footer>
+    </div>
+</div>

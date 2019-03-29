@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Reset";
+}
+
+@section Scripts{
+    <script src="~/js/site.js"></script>    
+}
+
+    <div class="modal fade bs-example-modal-sm" id="myModal" role="dialog" aria-label="myModallabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title" style="text-align: center">重置密码</p>
+                </div>
+                <div class="modal-body" style="text-align:center">
+                    <h3>你的密码已重置成功!</h3>
+                </div>
+                <div class="modal-footer">
+                    <form class="form-group" id="checkform" name="checkform">
+                        <button id="check" type="submit" class="btn btn-group-sm btn-block btn-info" asp-controller="Gate" asp-action="Login">
+                            返回登陆首页
+                        </button>
+                    </form>
+                </div>
+                </div>
+            </div>
+    </div>

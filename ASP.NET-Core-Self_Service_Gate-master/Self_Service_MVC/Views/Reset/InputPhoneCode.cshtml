@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "InputCode";
+}
+@section Scripts{
+    <script src="~/js/gate.js"></script>
+    <script src="~/js/site.js"></script>
+    <script language="javascript">
+        function start() {
+            var s = 60;
+            document.getElementById("Button1").disabled = true;
+            document.getElementById("Button1").value = s;
+            window.setTimeout("tick()", 1000);
+        }
+        function tick() {
+            var time = new Number(document.getElementById("Button1").value);
+            if (time > 0) {
+                document.getElementById("Button1").value = time - 1;
+                window.setTimeout("tick()", 1000);
+            }
+            else {
+                document.getElementById("Button1").disabled = false;
+                document.getElementById("Button1").value = "重新发送";
+                document.getElementById("in").disabled = true;
+            }
+        }
+    </script>
+    <script language=javascript>
+        start();
+    </script>
+}
+<div class="modal fade bs-example-modal-sm" id="myModal" role="dialog" aria-label="myModallabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" style="text-align: center">手机验证码</p>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                <h3>输入代码</h3>
+                <p>我们已将验证码发送到</p>
+                <p>@ViewData["Phone"]</p>
+                <p>请检查你的手机来获取密码重置代码。</p>
+            </div>
+            <form asp-controller="Reset" asp-action="ResetPage" method="get">
+                <div class="form-group has-feedback form-inline">
+                    <span class="glyphicon glyphicon-comment form-control-feedback"></span>
+                    <input type="text" name="MobileCode" class="form-control" id="in" style="text-align:center" placeholder="密码重置代码"><INPUT TYPE="button" class="btn btn-warning btn-primary" onclick="javascript:window.location.reload()" NAME="Button1" id="Button1">
+                    <input type="hidden" name="OfficalCode" value="@ViewData["OfficalCode"]" />
+                </div>
+                    <div class="modal-footer">
+                        <button id="check" type="submit" class="btn btn-group-sm btn-block btn-info">
+                            通过手机短信找回
+                        </button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

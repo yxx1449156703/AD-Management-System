@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "ConfirmByEmail";
+}
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}
+
+<div class="modal fade bs-example-modal-sm" id="myModal" role="dialog" aria-label="myModallabel" aria-hidden="true">
+        <form asp-controller="Reset" asp-action="InputEmailCode" method="get">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title" style="text-align: center">通过邮件重置密码</p>
+                    </div>
+                    <div class="modal-body" style="text-align:center">
+                        <h3>验证你的电子邮件</h3>
+                        <p>我们会将验证码发送到********.为了确定这是你的备用邮件电子地址，请在下方输入完整地址。</p>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        <input type="text" name="UserEmail" style="width:99%" class="form-control" placeholder="你的备用邮箱地址">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="check" type="submit" class="btn btn-group-sm btn-block btn-info">
+                            发送代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
